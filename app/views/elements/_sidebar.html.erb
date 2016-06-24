@@ -44,7 +44,11 @@
                     <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Create</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa  fa-database"></i><span>Tables</span></a></li>
+            <li>
+                <%= link_to ({:controller => :table}) do %>
+                <i class="fa  fa-database"></i><span>Tables</span>
+                <% end %>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
