@@ -1,0 +1,4 @@
+# ロケール設定
+ja:
+  validation:
+    presence: は必須項目です

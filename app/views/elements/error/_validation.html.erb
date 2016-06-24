@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="icon fa fa-ban"></i> <%= object.errors.count %>個のエラー!</h4>
+    <ul>
+        <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>

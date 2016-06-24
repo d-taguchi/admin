@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Admin</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin&nbsp;|&nbsp;<%= controller.controller_name.capitalize %></title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <%= csrf_meta_tags %>
+    </head>
+    <body class="hold-transition skin-yellow sidebar-mini">
+        <!-- [wrapper] -->
+        <div class="wrapper">
+            <%= render 'elements/headder' %>
+            <%= render 'elements/sidebar' %>
+            <!-- [content-wrapper] -->
+            <div class="content-wrapper">
+                <!-- [breadcrumb] -->
+                <section class="content-header">
+                    <h1><%= controller.controller_name.capitalize %></h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <%= link_to ({:controller => :dashboard}) do %>
+                            <i class="fa fa-dashboard"></i>&nbsp;Dashboard
+                            <% end %>
+                        </li>
+                        <% if controller.controller_name != 'dashboard' %>
+                        <li class="active"><%= controller.controller_name.capitalize %>.<%= controller.action_name %></li>
+                        <% end %>
+                    </ol>
+                </section>
+                <!-- [/breadcrumb] -->
+                <!-- [main content] -->
+                <section class="content">
+                    <%= yield %>
+                </section>
+                <!-- [main content] -->
+            </div>
+            <!-- [/content-wrapper] -->
+            <%= render 'elements/footer' %>
+        </div>
+        <!-- [/wrapper] -->
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    </body>
 </html>

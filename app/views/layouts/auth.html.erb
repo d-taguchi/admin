@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin&nbsp;|&nbsp;<%= controller.controller_name.capitalize %></title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <%= csrf_meta_tags %>
+    </head>
+    <body class="hold-transition login-page">
+        <!-- [login-box] -->
+        <div class="login-box">
+            <%= render 'elements/orange' %>
+            <div class="login-logo" style="color:#fab21f"><b>Mikaaaan</b></div>
+            <%= yield %>
+        </div>
+        <!-- [/wrapper] -->
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+        </script>
+    </body>
+</html>
