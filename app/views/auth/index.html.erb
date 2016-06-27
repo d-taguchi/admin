@@ -7,7 +7,7 @@
 }
 </style>
 
-<%= form_for @manager, :url => {:action => :index} do |f| %>
+<%= form_for @manager, :url => {:controller => :auth} do |f| %>
     <%= render 'elements/error/flash', flash %>
     <div class="login-box-body">
         <div class="form-group has-feedback">
