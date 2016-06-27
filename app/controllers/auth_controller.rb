@@ -6,7 +6,6 @@ class AuthController < ApplicationController
     ## ログイン認証画面
     def index
         @manager = Manager.new
-        @session = session[:manager];
         # レイアウト変更
         render :layout => 'auth'
     end
