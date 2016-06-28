@@ -1,0 +1,19 @@
+<div class="modal" id="modal-example-<%= user.id %>" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p class="modal-title" id="modal-label"><i class="fa fa-warning"></i>&nbsp;CONFIRMATION</p>
+            </div>
+            <div class="modal-body">
+                <%= user.user_datum.nickname %>のデータを削除してよろしいですか?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <%= link_to 'Destroy', user, class: "btn btn-sm btn-warning", method: :delete %>
+            </div>
+        </div>
+    </div>
+</div>

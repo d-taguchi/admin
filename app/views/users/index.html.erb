@@ -1,0 +1,70 @@
+<%= render 'elements/complete', notice: notice %>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Users</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th>id</th>
+                                        <th>group</th>
+                                        <th>nickname</th>
+                                        <th>sex</th>
+                                        <th>birthday</th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @users.each do |user| %>
+                                    <tr role="row">
+                                        <td><%= user.id %></td>
+                                        <td><%= user.group %></td>
+                                        <td><%= user.user_datum.nickname %></td>
+                                        <td><%= user.user_datum.sex %></td>
+                                        <td><%= user.user_datum.birthday %></td>
+                                        <td style="width:18%; text-align:center;">
+                                            <div class="btn-group">
+                                                <%= link_to 'Show', user, class: "btn btn-sm btn-warning" %>
+                                                <%= link_to 'Destroy', '#', {:class => 'btn btn-sm btn-warning', 'data-toggle' => 'modal', 'data-target' => "#modal-example-#{user.id}"} %>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%= render 'elements/modal/user_delete', user: user %>
+                                    <% end %>
+                                </tbody>
+                                <tfoot>
+                                    <tr role="row">
+                                        <th>id</th>
+                                        <th>group</th>
+                                        <th>nickname</th>
+                                        <th>sex</th>
+                                        <th>birthday</th>
+                                        <th>action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info"><%= page_entries_info(@users) %></div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers">
+                                <%= paginate @users %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

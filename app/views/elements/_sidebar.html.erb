@@ -16,16 +16,6 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i><span>Users</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>List</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Create</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
                     <i class="fa fa-building"></i><span>Partners</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -46,8 +36,13 @@
             </li>
             <li><a href="#"><i class="fa fa-photo"></i><span>Designs</span></a></li>
             <li>
+                <%= link_to ({:controller => :users}) do %>
+                <i class="fa fa-users"></i><span>Users</span>
+                <% end %>
+            </li>
+            <li>
                 <%= link_to ({:controller => :table}) do %>
-                <i class="fa  fa-database"></i><span>Tables</span>
+                <i class="fa fa-database"></i><span>Tables</span>
                 <% end %>
             </li>
             <li class="treeview">

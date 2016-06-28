@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :user_data
     # root
     root 'dashboard#index'
 
     # controller
     Rails.application.routes.draw do
+  resources :user_data
+        resources :users
         resources :widgets, only: [:index] # 部品
         # resources :table, only: [:index] # テーブル
         resources :table # テーブル

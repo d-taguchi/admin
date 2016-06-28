@@ -33,6 +33,11 @@ gem 'bcrypt-ruby', '~> 3.1.0', require: 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# ページネーションを作成するGem
+gem 'kaminari'
+# 物理削除から論理削除へ変更するGem
+gem 'kakurenbo'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

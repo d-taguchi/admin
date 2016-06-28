@@ -1,3 +1,64 @@
+.loader-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #000;
+    filter:alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.loading {
+    position: absolute;
+    left: 45%;
+    top: 35%;
+    color: #fab21f;
+    text-align: center;
+}
+
 .alert h4 {
     font-size: 15px
+}
+
+.table-view {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.table-view th {
+    width:20%;
+    padding:15px;
+    text-align: left;
+    vertical-align: top;
+    color: #444;
+    background-color: #f9ddb0;
+    border-left: 3px double #999;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.table-view td {
+    width:80%;
+    padding:15px;
+    background-color: #fafafa;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.example-modal .modal {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    z-index: 1999
+}
+
+.example-modal .modal {
+    background: transparent !important;
 }
