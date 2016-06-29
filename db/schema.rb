@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20160627060856) do
 
   add_index "user_data", ["nickname"], name: "nickname", using: :btree
 
+  create_table "user_mails", force: :cascade do |t|
+    t.integer  "user_id",              limit: 4,  null: false
+    t.string   "mail_account",         limit: 64, null: false
+    t.string   "mail_domain",          limit: 64, null: false
+    t.boolean  "send_flag",                       null: false
+    t.boolean  "send_result_flag"
+    t.datetime "send_result_modified"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "user_mails", ["user_id"], name: "user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.integer  "group",           limit: 2,   null: false
     t.string   "password_digest", limit: 255, null: false

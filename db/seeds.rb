@@ -43,6 +43,14 @@ Manager.create!(
         :birthday         => "1999-06-06",
         :pref_id          => 8,
     )
+
+    ## UserDatum
+    UserMail.create!(
+        :user_id      => i + 1,
+        :mail_account => "test_#{i + 1}",
+        :mail_domain  => "test#{i + 1}.com",
+        :send_flag    => true,
+    )
 end
 
 

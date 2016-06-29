@@ -18,7 +18,7 @@
                                         <th>group</th>
                                         <th>nickname</th>
                                         <th>sex</th>
-                                        <th>birthday</th>
+                                        <th>email</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
@@ -29,7 +29,7 @@
                                         <td><%= user.group %></td>
                                         <td><%= user.user_datum.nickname %></td>
                                         <td><%= user.user_datum.sex %></td>
-                                        <td><%= user.user_datum.birthday %></td>
+                                        <td><%= user.user_mail[0].mail_account %>@<%= user.user_mail[0].mail_domain %></td>
                                         <td style="width:18%; text-align:center;">
                                             <div class="btn-group">
                                                 <%= link_to 'Show', user, class: "btn btn-sm btn-warning" %>
