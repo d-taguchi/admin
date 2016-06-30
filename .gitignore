@@ -102,3 +102,7 @@ bower.json
 .byebug_history
 
 .imdone
+
+
+
+app/controllers/dashboard_controller.rb
