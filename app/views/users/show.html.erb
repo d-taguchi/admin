@@ -43,4 +43,15 @@
     </tbody>
 </table>
 
+<table class="table-view">
+    <tbody>
+        <tr>
+            <% @user.user_mail.each do |mail| %>
+            <th>メールアドレス</th>
+            <td><%= mail.mail_account %>@<%= mail.mail_domain %></td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>
+
 <%= link_to 'Back', users_path, class: "btn btn-warning btn-block" %>

@@ -15,38 +15,30 @@
                                 <thead>
                                     <tr role="row">
                                         <th>id</th>
-                                        <th>group</th>
-                                        <th>nickname</th>
-                                        <th>sex</th>
-                                        <th>email</th>
+                                        <th>表示名</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% @users.each do |user| %>
+                                    <% @partners.each do |partner| %>
                                     <tr role="row">
-                                        <td><%= user.id %></td>
-                                        <td><%= group_2_display_4_converting(user.group) %></td>
-                                        <td><%= user.user_datum.nickname %></td>
-                                        <td><%= user.user_datum.sex %></td>
-                                        <td><%= user.user_mail[0].mail_account %>@<%= user.user_mail[0].mail_domain %></td>
+                                        <td><%= partner.id %></td>
+                                        <td><%= partner.view_name %></td>
                                         <td style="width:18%; text-align:center;">
                                             <div class="btn-group">
-                                                <%= link_to 'Show', user, class: "btn btn-sm btn-warning" %>
-                                                <%= link_to 'Destroy', '#', {:class => 'btn btn-sm btn-warning', 'data-toggle' => 'modal', 'data-target' => "#modal-example-#{user.id}"} %>
+                                                <%= link_to 'Show', partner, class: "btn btn-sm btn-warning" %>
+                                                <%= link_to 'Edit', edit_partner_path(partner), class: "btn btn-sm btn-warning" %>
+                                                <%= link_to 'Destroy', '#', {:class => 'btn btn-sm btn-warning', 'data-toggle' => 'modal', 'data-target' => "#modal-example-#{partner.id}"} %>
                                             </div>
                                         </td>
                                     </tr>
-                                    <%= render 'elements/modal/user_delete', user: user %>
+                                    <%= render 'elements/modal/partner_delete', partner: partner %>
                                     <% end %>
                                 </tbody>
                                 <tfoot>
                                     <tr role="row">
                                         <th>id</th>
-                                        <th>group</th>
-                                        <th>nickname</th>
-                                        <th>sex</th>
-                                        <th>birthday</th>
+                                        <th>表示名</th>
                                         <th>action</th>
                                     </tr>
                                 </tfoot>
@@ -55,11 +47,11 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info"><%= page_entries_info(@users) %></div>
+                            <div class="dataTables_info"><%= page_entries_info(@partners) %></div>
                         </div>
                         <div class="col-sm-7">
                             <div class="dataTables_paginate paging_simple_numbers">
-                                <%= paginate @users %>
+                                <%= paginate @partners %>
                             </div>
                         </div>
                     </div>
@@ -68,3 +60,6 @@
         </div>
     </div>
 </div>
+
+
+<%= link_to 'New Partner', new_partner_path, class: "btn btn-warning btn-block" %>

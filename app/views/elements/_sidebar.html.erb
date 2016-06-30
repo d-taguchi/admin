@@ -14,15 +14,10 @@
         <!-- [sidebar-menu] -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-building"></i><span>Partners</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>List</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Create</a></li>
-                </ul>
+            <li>
+                <%= link_to ({:controller => :partners}) do %>
+                <i class="fa fa-building"></i><span>Partners</span>
+                <% end %>
             </li>
             <li class="treeview">
                 <a href="#">

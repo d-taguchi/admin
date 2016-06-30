@@ -11,21 +11,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627060856) do
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "managers", force: :cascade do |t|
-    t.string   "name",            limit: 45,  null: false
-    t.integer  "group",           limit: 2,   null: false
+    t.string   "name",            limit: 45,              null: false
+    t.integer  "group",           limit: 2,               null: false
     t.string   "password_digest", limit: 255
-    t.string   "email",           limit: 255, null: false
+    t.string   "email",           limit: 255,             null: false
     t.datetime "last_login"
-    t.integer  "status",          limit: 1,   null: false
-    t.datetime "created_at",                  null: false
+    t.integer  "status",          limit: 1,   default: 0, null: false
+    t.datetime "created_at",                              null: false
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end
 
   add_index "managers", ["email"], name: "email", using: :btree
+
+  create_table "partner_mails", force: :cascade do |t|
+    t.integer  "partner_staff_id",     limit: 4,   null: false
+    t.string   "mail_account",         limit: 64,  null: false
+    t.string   "mail_domain",          limit: 64,  null: false
+    t.string   "serch_hash",           limit: 255, null: false
+    t.boolean  "send_flag",                        null: false
+    t.boolean  "send_result_flag"
+    t.datetime "send_result_modified"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "partner_mails", ["serch_hash"], name: "serch_hash", using: :btree
+
+  create_table "partner_staffs", force: :cascade do |t|
+    t.integer  "partner_id",      limit: 4,               null: false
+    t.integer  "group",           limit: 1,               null: false
+    t.string   "password_digest", limit: 255,             null: false
+    t.string   "name",            limit: 255
+    t.string   "name_kana",       limit: 255
+    t.datetime "last_login"
+    t.integer  "status",          limit: 1,   default: 0, null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "partner_staffs", ["partner_id"], name: "partner_id", using: :btree
+  add_index "partner_staffs", ["status"], name: "status", using: :btree
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "view_name",         limit: 48,              null: false
+    t.string   "company_name",      limit: 48
+    t.string   "company_name_kana", limit: 48
+    t.string   "responsible",       limit: 48
+    t.string   "responsible_kana",  limit: 255
+    t.integer  "pref_id",           limit: 1
+    t.string   "address",           limit: 128
+    t.string   "address_kana",      limit: 255
+    t.string   "tel",               limit: 12
+    t.string   "fax",               limit: 12
+    t.integer  "status",            limit: 1,   default: 0, null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "partners", ["status"], name: "status", using: :btree
 
   create_table "user_data", primary_key: "user_id", force: :cascade do |t|
     t.string   "nickname",         limit: 48,  null: false
@@ -47,13 +97,14 @@ ActiveRecord::Schema.define(version: 20160627060856) do
   add_index "user_data", ["nickname"], name: "nickname", using: :btree
 
   create_table "user_mails", force: :cascade do |t|
-    t.integer  "user_id",              limit: 4,  null: false
-    t.string   "mail_account",         limit: 64, null: false
-    t.string   "mail_domain",          limit: 64, null: false
-    t.boolean  "send_flag",                       null: false
+    t.integer  "user_id",              limit: 4,   null: false
+    t.string   "mail_account",         limit: 64,  null: false
+    t.string   "mail_domain",          limit: 64,  null: false
+    t.string   "serch_hash",           limit: 255, null: false
+    t.boolean  "send_flag",                        null: false
     t.boolean  "send_result_flag"
     t.datetime "send_result_modified"
-    t.datetime "created_at",                      null: false
+    t.datetime "created_at",                       null: false
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end
@@ -61,11 +112,11 @@ ActiveRecord::Schema.define(version: 20160627060856) do
   add_index "user_mails", ["user_id"], name: "user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.integer  "group",           limit: 2,   null: false
-    t.string   "password_digest", limit: 255, null: false
+    t.integer  "group",           limit: 2,               null: false
+    t.string   "password_digest", limit: 255,             null: false
     t.datetime "last_login"
-    t.integer  "status",          limit: 1,   null: false
-    t.datetime "created_at",                  null: false
+    t.integer  "status",          limit: 1,   default: 0, null: false
+    t.datetime "created_at",                              null: false
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
     # controller
     Rails.application.routes.draw do
+        resources :partners
         resources :users
         resources :widgets, only: [:index] # 部品
         # resources :table, only: [:index] # テーブル

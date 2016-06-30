@@ -1,4 +1,4 @@
-<div class="modal" id="modal-example-<%= user.id %>" tabindex="-1">
+<div class="modal" id="modal-example-<%= partner.id %>" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,11 +8,11 @@
                 <p class="modal-title" id="modal-label"><i class="fa fa-warning"></i>&nbsp;CONFIRMATION</p>
             </div>
             <div class="modal-body">
-                <%= user.user_datum.nickname %>のデータを削除してよろしいですか?
+                <%= partner.view_name %>のデータを削除してよろしいですか?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <%= link_to 'Destroy', user, class: "btn btn-sm btn-warning", method: :delete %>
+                <%= link_to 'Destroy', partner, class: "btn btn-sm btn-warning", method: :delete %>
             </div>
         </div>
     </div>
