@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "partners", ["status"], name: "status", using: :btree
 
-  create_table "prefecture", force: :cascade do |t|
+  create_table "prefectures", force: :cascade do |t|
     t.integer  "region_id",  limit: 1
     t.string   "name",       limit: 255
     t.string   "name_kana",  limit: 255
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "deleted_at"
   end
 
-  create_table "region", force: :cascade do |t|
+  create_table "regions", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "name_kana",  limit: 255
     t.datetime "created_at",             null: false
