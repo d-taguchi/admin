@@ -8,7 +8,7 @@
 </style>
 
 <%= form_for @manager, :url => {:controller => :auth} do |f| %>
-    <%= render 'elements/error/flash', flash %>
+    <%= render 'elements/error/multi', flash %>
     <div class="login-box-body">
         <div class="form-group has-feedback">
             <%= f.text_field :email, :class => 'form-control', :placeholder => 'Email' %>

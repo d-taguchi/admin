@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-    # Prevent CSRF attacks by raising an exception.
-    # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
 
     ## ログインチェック
@@ -9,7 +7,7 @@ class ApplicationController < ActionController::Base
     ## セッションリセット
     def reset_session
         session[:manager] = nil
-        @current_manager  = nil
+        @_manager  = nil
     end
 
     ## ログインチェック
@@ -29,5 +27,16 @@ class ApplicationController < ActionController::Base
             flash[:referer] = request.fullpath
             redirect_to auth_index_path
         end
+    end
+
+    # cancanのメソッド
+    # @override
+    def current_ability
+        @current_ability ||= Ability.new(@_manager)
+    end
+
+    # 権限無し時のエラーアクション
+    rescue_from CanCan::AccessDenied do |exception|
+        redirect_to root_url,alert: {errors: exception.message}
     end
 end

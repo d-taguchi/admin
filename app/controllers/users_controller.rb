@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+    # 権限チェック
+    authorize_resource
+
     before_action :set_user, only: [:show, :destroy]
 
     # GET /users
