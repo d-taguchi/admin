@@ -11,6 +11,10 @@ AUTHORITY_USER  = 1   #   1：ユーザー
 AUTHORITY_CHIEF = 50  #  50：長
 AUTHORITY_ADMIN = 100 # 100：管理者
 
+# 性別 sex
+SEX_MALE   = 1 # 男性
+SEX_FEMALE = 2 # 女性
+
 module Constants
     ## Constants::NUMでアクセスできる
     NUM = 1

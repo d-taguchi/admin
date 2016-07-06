@@ -17,4 +17,16 @@ module ApplicationHelper
             view = '謎'
         end
     end
+
+    ## 性別を表示用に変換する
+    def sex_2_display_4_converting(sex)
+        case sex
+        when SEX_MALE then
+            view = '男性'
+        when SEX_FEMALE then
+            view = '女性'
+        else
+            view = '謎'
+        end
+    end
 end
