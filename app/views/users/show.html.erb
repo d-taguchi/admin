@@ -54,4 +54,6 @@
     </tbody>
 </table>
 
-<%= link_to 'Back', users_path, class: "btn btn-warning btn-block" %>
+<%= link_to 'Back', users_path, {class: 'btn btn-warning btn-block', 'style' => 'margin-bottom: 10px;'} %>
+<%= link_to 'Destroy', '#', {:class => 'btn btn-danger btn-block', 'data-toggle' => 'modal', 'data-target' => "#modal-example-#{@user.id}"} %>
+<%= render 'elements/modal/user_delete', user: @user %>
